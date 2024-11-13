@@ -11,7 +11,7 @@
 
 .link {
   display: inline-block;
-  padding: 25px;
+  padding: 20px;
   text-decoration: none;
   color: rgb(106, 25, 25);
 }
@@ -22,7 +22,7 @@
 }
 
 .link + .link {
-  margin-left: 30px;
+  margin-left: 20px;
 }
 
 .active {
