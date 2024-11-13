@@ -1,0 +1,31 @@
+.header {
+  box-shadow: 0 4px 2px -2px gray;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-size: 20px;
+}
+
+.link {
+  display: inline-block;
+  padding: 25px;
+  text-decoration: none;
+  color: rgb(106, 25, 25);
+}
+
+.link:hover {
+  text-decoration: underline;
+  color: rgb(189, 60, 82);
+}
+
+.link + .link {
+  margin-left: 30px;
+}
+
+.active {
+  color: rgb(189, 60, 82);
+  font-weight: 600;
+}
