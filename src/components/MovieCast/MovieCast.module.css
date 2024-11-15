@@ -1,0 +1,40 @@
+.list {
+  --items-per-row: 1;
+  --items-gap: 15px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--items-gap);
+}
+
+.item {
+  flex: 0 0
+    calc(
+      100% / var(--items-per-row) - var(--items-gap) *
+        (var(--items-per-row) - 1) / var(--items-per-row)
+    );
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.14),
+    0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (540px < width < 768px) {
+  .list {
+    --items-per-row: 2;
+  }
+}
+
+@media only screen and (768px < width < 1024px) {
+  .list {
+    --items-per-row: 3;
+  }
+}
+
+@media only screen and (width >= 1024px) {
+  .list {
+    --items-per-row: 4;
+  }
+}

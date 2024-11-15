@@ -1,13 +1,20 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink, Outlet, useLocation } from "react-router-dom";
 import Container from "../../components/Container";
 import { MdKeyboardBackspace } from "react-icons/md";
 import movies_API from "../../sevices/movies-api";
+import clsx from "clsx";
 import s from "./MovieDetailsPage.module.css";
+
+const buildLinkClass = ({ isActive }) => {
+  return clsx(s.btn, s.link, isActive && s.active);
+};
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
+  const location = useLocation();
+  console.log(location);
 
   useEffect(() => {
     const getMovie = async () => {
@@ -40,6 +47,18 @@ const MovieDetailsPage = () => {
             </div>
           </div>
         )}
+      </section>
+      <section className={s.section}>
+        <h2>Additional information</h2>
+        <div className={s.tabs}>
+          <NavLink to="cast" className={buildLinkClass}>
+            Cast
+          </NavLink>
+          <NavLink to="reviews" className={buildLinkClass}>
+            Reviews
+          </NavLink>
+        </div>
+        <Outlet />
       </section>
     </Container>
   );

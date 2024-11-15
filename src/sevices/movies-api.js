@@ -15,6 +15,25 @@ const fetchMovieById = async (movieId) => {
   return data;
 };
 
-const api = { fetchTrendingMovies, fetchMovieById };
+const fetchCastById = async (movieId) => {
+  let { data: { cast } = [] } = await axios({
+    url: `/movie/${movieId}/credits`,
+  });
+  return cast;
+};
+
+const fetchReviewsById = async (movieId) => {
+  let { data: { results } = [] } = await axios({
+    url: `/movie/${movieId}/reviews`,
+  });
+  return results;
+};
+
+const api = {
+  fetchTrendingMovies,
+  fetchMovieById,
+  fetchCastById,
+  fetchReviewsById,
+};
 
 export default api;
