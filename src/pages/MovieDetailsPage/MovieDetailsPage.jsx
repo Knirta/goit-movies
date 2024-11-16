@@ -1,5 +1,11 @@
-import { useState, useEffect } from "react";
-import { useParams, NavLink, Outlet, useLocation } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
+import {
+  useParams,
+  NavLink,
+  Link,
+  Outlet,
+  useLocation,
+} from "react-router-dom";
 import Container from "../../components/Container";
 import { MdKeyboardBackspace } from "react-icons/md";
 import movies_API from "../../sevices/movies-api";
@@ -7,14 +13,14 @@ import clsx from "clsx";
 import s from "./MovieDetailsPage.module.css";
 
 const buildLinkClass = ({ isActive }) => {
-  return clsx(s.btn, s.link, isActive && s.active);
+  return clsx(s.link, isActive && s.active);
 };
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation();
-  console.log(location);
+  const backLinkHref = useRef(location.state ?? "/movies");
 
   useEffect(() => {
     const getMovie = async () => {
@@ -26,10 +32,10 @@ const MovieDetailsPage = () => {
 
   return (
     <Container>
-      <section className={s.section}>
-        <button className={s.btn} role="button">
+      <section>
+        <Link to={backLinkHref.current} className={s.link}>
           <MdKeyboardBackspace /> Go back
-        </button>
+        </Link>
         {movie && (
           <div className={s.wrap}>
             <img
@@ -48,7 +54,7 @@ const MovieDetailsPage = () => {
           </div>
         )}
       </section>
-      <section className={s.section}>
+      <section>
         <h2>Additional information</h2>
         <div className={s.tabs}>
           <NavLink to="cast" className={buildLinkClass}>

@@ -15,6 +15,8 @@
       100% / var(--items-per-row) - var(--items-gap) *
         (var(--items-per-row) - 1) / var(--items-per-row)
     );
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.14),
+    0 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 @media only screen and (540px < width < 768px) {

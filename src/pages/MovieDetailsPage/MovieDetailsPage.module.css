@@ -1,14 +1,11 @@
-.section {
-  padding: 25px 0;
-}
-
-.btn {
-  display: flex;
+.link {
+  display: inline-flex;
   margin-bottom: 25px;
   justify-content: center;
   align-items: center;
   padding: 15px 30px;
   text-transform: uppercase;
+  text-decoration: none;
   transition: 0.5s;
   background-size: 200% auto;
   color: #fff;
@@ -25,13 +22,13 @@
   cursor: pointer;
 }
 
-.btn:hover {
+.link:hover {
   background-position: right center;
   /* change the direction of the change here */
   text-decoration: none;
 }
 
-.btn:active {
+.link:active {
   transform: scale(0.95);
 }
 
@@ -47,26 +44,6 @@
   font-size: 30px;
 }
 
-.btn.link {
-  display: inline-flex;
-  text-decoration: none;
-  background-image: linear-gradient(
-    45deg,
-    rgb(92, 59, 64) 0%,
-    rgb(136, 122, 62) 51%,
-    rgb(92, 59, 64) 100%
-  );
-}
-
 .link + .link {
   margin-left: 15px;
-}
-
-.link.active {
-  background-image: linear-gradient(
-    45deg,
-    rgb(189, 60, 82) 0%,
-    rgb(240, 197, 25) 51%,
-    rgb(189, 60, 82) 100%
-  );
 }

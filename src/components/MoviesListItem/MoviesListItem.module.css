@@ -1,6 +1,7 @@
 .item {
   position: relative;
   cursor: pointer;
+  min-height: 100%;
 }
 
 .img {
@@ -31,4 +32,9 @@
   flex: 1;
   display: flex;
   justify-content: end;
+}
+
+.fallback {
+  margin: 0;
+  text-align: center;
 }

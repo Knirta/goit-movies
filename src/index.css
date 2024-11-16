@@ -21,3 +21,7 @@ img {
 figure {
   margin: 0;
 }
+
+section {
+  padding: 25px 0;
+}

@@ -29,11 +29,20 @@ const fetchReviewsById = async (movieId) => {
   return results;
 };
 
+const fetchMoviesByTitle = async (title) => {
+  let { data: { results } = [] } = await axios({
+    url: "/search/movie",
+    params: { query: title },
+  });
+  return results;
+};
+
 const api = {
   fetchTrendingMovies,
   fetchMovieById,
   fetchCastById,
   fetchReviewsById,
+  fetchMoviesByTitle,
 };
 
 export default api;

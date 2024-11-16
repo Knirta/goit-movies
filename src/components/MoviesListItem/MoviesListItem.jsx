@@ -6,11 +6,16 @@ const MoviesListItem = ({ movie }) => {
   let { title, poster_path, vote_average } = movie;
   return (
     <figure className={s.item}>
-      <img
-        className={s.img}
-        src={`https://image.tmdb.org/t/p/w500/${poster_path}.jpg`}
-        alt={title}
-      />
+      {poster_path ? (
+        <img
+          className={s.img}
+          src={`https://image.tmdb.org/t/p/w500/${poster_path}.jpg`}
+          alt={title}
+        />
+      ) : (
+        <p className={s.fallback}>Photo is not avaliable</p>
+      )}
+
       <figcaption className={s.caption}>
         {<FaRegThumbsUp />}
         <span className={s.vote}>{vote_average}</span>
