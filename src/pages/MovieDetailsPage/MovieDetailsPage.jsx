@@ -7,6 +7,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import Container from "../../components/Container";
+import Loader from "../../components/Loader";
 import { MdKeyboardBackspace } from "react-icons/md";
 import movies_API from "../../sevices/movies-api";
 import clsx from "clsx";
@@ -64,7 +65,7 @@ const MovieDetailsPage = () => {
             Reviews
           </NavLink>
         </div>
-        <Suspense fallback={<Container>loading...</Container>}>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </section>
